@@ -1,0 +1,31 @@
+#container{
+    width:100%;
+    height:100px;
+    background-color: black;
+    top:0;
+    left:0;
+}
+input{
+    width:40%;
+    height:40%;
+    margin-top: 10px;
+    margin-left:30%;
+}
+#searchbox{
+    max-height: 300px;
+    width: 60%;
+    overflow-y: scroll;
+    /* scrollbar-width: none;
+    scrollbar-color: unset;
+    scrollbar-base-color: unset;
+    z-index: 99999; */
+    background-color: #fff;
+    /* box-shadow: 2px 2px 2px #ccc; */
+    margin-left:20%;
+}
+#showcase{
+    margin-top:30%;
+    border:1px solid black;
+    width:100px;
+    height:40px;
+}
