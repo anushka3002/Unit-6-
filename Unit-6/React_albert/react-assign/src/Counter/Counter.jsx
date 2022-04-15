@@ -22,14 +22,14 @@ handleCounterChange=(value)=>{
 
     render(){
         const {title}=this.props
-        const {counter}=this.state
+        const {counter,totalClicks}=this.state
         return(
             <div>
                 <h1>{title}</h1>
                 <h3>{counter}</h3>
                 <button onClick={()=>this.handleCounterChange(1)}>Add</button>
                 <button onClick={()=>this.handleCounterChange(-1)}>Reduce</button>
-                <div>Total clicks = {this.state.totalClicks}</div>
+                <div>Total clicks = {totalClicks}</div>
             </div>
         )
     }
