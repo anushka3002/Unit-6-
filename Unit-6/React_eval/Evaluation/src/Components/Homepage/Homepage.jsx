@@ -41,10 +41,10 @@ export const Homepage = () => {
         <br />
         <div>
           <button id="sorting" onClick={()=>{let arr=city.sort((a,b)=>b.population-a.population); addCity([...arr])}}>
-            Population High to low
+            Population Desc
           </button>
           <button id="sorting" onClick={()=>{let arr=city.sort((a,b)=>a.population-b.population); addCity([...arr])}}>
-            Population Low to high
+            Population Asce
           </button>
         </div>
         <br />
