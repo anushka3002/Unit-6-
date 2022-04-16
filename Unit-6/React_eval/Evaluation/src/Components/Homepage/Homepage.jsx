@@ -55,7 +55,15 @@ export const Homepage=()=>{
                             <button>Edit</button>
                         </td>
                         <td>
-                            <button>Delete</button>
+                            <button
+                             onClick={()=>{
+                                axios.delete(`http://localhost:3002/data/${1}`).then(res=>{
+                                console.log(res.data);
+                                console.log("delete done")
+                                getData();
+                                })
+                            }}
+                            >Delete</button>
                         </td>
                     </tr>
                 )}
