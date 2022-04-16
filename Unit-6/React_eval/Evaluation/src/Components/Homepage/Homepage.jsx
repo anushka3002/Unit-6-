@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { CityTable } from "../Table/citytable";
+import { CityTable } from "../StoringData/citytable";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addCity } from "../../Redux/action";
@@ -27,74 +27,73 @@ export const Homepage = () => {
     axios.delete(`http://localhost:3002/city/${id}`).then(() => getData());
   }
 
-  // SORTING
-  const sortAscCountry = () => {
-    let test = cities.sort(AscCountry);
-    let change = dispatch(addCity(test));
-    addCity([...change.payload]);
-  };
+  // const sortAscCountry = () => {
+  //   let test = cities.sort(AscCountry);
+  //   let change = dispatch(addCity(test));
+  //   addCity([...change.payload]);
+  // };
 
-  function AscCountry(a, b) {
-    if (a.country < b.country) {
-      return -1;
-    }
-    if (a.country > b.country) {
-      return 1;
-    }
-    return 0;
-  }
+  // function AscCountry(a, b) {
+  //   if (a.country < b.country) {
+  //     return -1;
+  //   }
+  //   if (a.country > b.country) {
+  //     return 1;
+  //   }
+  //   return 0;
+  // }
 
   //country dsc
 
-  const sortDscCountry = () => {
-    let test = cities.sort(DscCountry);
-    let change = dispatch(addCity(test));
-    addCity([...change.payload]);
-  };
+  // const sortDscCountry = () => {
+  //   let test = cities.sort(DscCountry);
+  //   let change = dispatch(addCity(test));
+  //   addCity([...change.payload]);
+  // };
 
-  function DscCountry(a, b) {
-    if (a.country > b.country) {
-      return -1;
-    }
-    if (a.country < b.country) {
-      return 1;
-    }
-    return 0;
-  }
+  // function DscCountry(a, b) {
+  //   if (a.country > b.country) {
+  //     return -1;
+  //   }
+  //   if (a.country < b.country) {
+  //     return 1;
+  //   }
+  //   return 0;
+  // }
 
   //High
 
-  const high = () => {
-    let test = cities.sort(PopulationHigh);
-    let change = dispatch(addCity(test));
-    addCity([...change.payload]);
-  };
+  // const high = () => {
+  //   let test = cities.sort(PopulationHigh);
+  //   let change = dispatch(addCity(test));
+  //   addCity([...change.payload]);
+  // };
 
-  function PopulationHigh(a, b) {
-    if (+a.population > +b.population) {
-      return -1;
-    }
-    if (+a.population < +b.population) {
-      return 1;
-    }
-    return 0;
-  }
+  // function PopulationHigh(a, b) {
+  //   if (+a.population > +b.population) {
+  //     return -1;
+  //   }
+  //   if (+a.population < +b.population) {
+  //     return 1;
+  //   }
+  //   return 0;
+  // }
 
-  const low = () => {
-    let test = cities.sort(PopulationLow);
-    let change = dispatch(addCity(test));
-    addCity([...change.payload]);
-  };
+  // const low = () => {
+  //   let test = cities.sort(PopulationLow);
+  //   let change = dispatch(addCity(test));
+  //   addCity([...change.payload]);
+  // };
 
-  function PopulationLow(a, b) {
-    if (+a.population < +b.population) {
-      return -1;
-    }
-    if (+a.population > +b.population) {
-      return 1;
-    }
-    return 0;
-  }
+  // function PopulationLow(a, b) {
+  //   if (+a.population < +b.population) {
+  //     return -1;
+  //   }
+  //   if (+a.population > +b.population) {
+  //     return 1;
+  //   }
+  //   return 0;
+  // }
 
   return (
     <>
@@ -108,17 +107,11 @@ export const Homepage = () => {
         </div>
         <div>
         <br />
-        <div className="sortingButtons">
-          <button className="sortByCounty" onClick={() => sortAscCountry()}>
-            Country Asc
-          </button>
-          <button className="sortByCounty" onClick={() => sortDscCountry()}>
-            Country Desc
-          </button>
-          <button className="sortByCounty" onClick={() => high()}>
+        <div>
+          <button id="sorting" onClick={()=>{let arr=city.sort((a,b)=>b.population-a.population); addCity([...arr])}}>
             Population High to low
           </button>
-          <button className="sortByCounty" onClick={() => low()}>
+          <button id="sorting" onClick={()=>{let arr=city.sort((a,b)=>a.population-b.population); addCity([...arr])}}>
             Population Low to high
           </button>
         </div>
