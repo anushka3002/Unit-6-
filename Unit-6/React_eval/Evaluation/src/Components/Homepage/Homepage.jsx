@@ -8,7 +8,7 @@ import { addCity } from "../../Redux/action";
 import "./Homepage.css"
 
 export const Homepage = () => {
-  const [city, setCity] = useState([]);
+  const [city, addCity] = useState([]);
   useEffect(() => 
     getData(), 
   []);
@@ -19,7 +19,7 @@ export const Homepage = () => {
   const getData = () => {
     axios.get(`http://localhost:3002/city`).then((res) => {
       let final = dispatch(addCity(res.data));
-      setCity([...final.payload]);
+      addCity([...final.payload]);
     });
   };
 
@@ -31,7 +31,7 @@ export const Homepage = () => {
   const sortAscCountry = () => {
     let test = cities.sort(AscCountry);
     let change = dispatch(addCity(test));
-    setCity([...change.payload]);
+    addCity([...change.payload]);
   };
 
   function AscCountry(a, b) {
@@ -49,7 +49,7 @@ export const Homepage = () => {
   const sortDscCountry = () => {
     let test = cities.sort(DscCountry);
     let change = dispatch(addCity(test));
-    setCity([...change.payload]);
+    addCity([...change.payload]);
   };
 
   function DscCountry(a, b) {
@@ -67,7 +67,7 @@ export const Homepage = () => {
   const high = () => {
     let test = cities.sort(PopulationHigh);
     let change = dispatch(addCity(test));
-    setCity([...change.payload]);
+    addCity([...change.payload]);
   };
 
   function PopulationHigh(a, b) {
@@ -83,7 +83,7 @@ export const Homepage = () => {
   const low = () => {
     let test = cities.sort(PopulationLow);
     let change = dispatch(addCity(test));
-    setCity([...change.payload]);
+    addCity([...change.payload]);
   };
 
   function PopulationLow(a, b) {
