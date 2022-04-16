@@ -1,0 +1,22 @@
+{
+    "data":[
+        {
+            "id":1,
+            "country":"India",
+            "city":"Delhi",
+            "population":"1900000"
+        },
+        {
+            "id":2,
+            "country":"Australia",
+            "city":"Delhi",
+            "population":"1300000"
+        },
+        {
+            "id":3,
+            "country":"America",
+            "city":"Delhi",
+            "population":"1800000"
+        }
+    ]
+}

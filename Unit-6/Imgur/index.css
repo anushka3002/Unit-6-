@@ -21,27 +21,75 @@ body{
     margin-top: 1%;
     height:9%;
 }
-#searchContainer{
-    
+#new{
+    width:17%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    margin-left: 4%;
 }
-#searchForm{
+#newPost{
+    width:10%;
+    height:100%;
     display: flex;
-    max-width: 550px;
+    border:1px solid black;
+    background-color: #1bb76e;
+    border-radius: 3px;
+    font-family: "Proxima Nova Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    /* margin-left: 1%; */
+}
+#postText{
+    margin:8%;
+    /* margin-bottom:10px */
+}
+#searchContainer{
+    max-width: 510px;
     width:100%;
     float:right;
     position: relative;
-    border:1px solid yellow;
+    border:1px solid transparent;
     text-align: center;
-
+    margin-left: 7%;
+}
+#searchForm{
+    display: flex;
+}
+.search{
+    /* padding-top: 5px; */
 }
 #searchLogo{
-    border:1px solid green;
+    border-style: none;
+    margin-left:-4px;
+    padding-bottom:9px;
+    background-color: rgba(255, 255, 255, 0.167); 
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;     
 }
 #searchbox{
-    border:1px solid red;
+    border-style: none;
+    padding:8px;
     width: 90%;
+    height:100%;
+    padding-top: 13px;
+    background-color: rgba(255, 255, 255, 0.167);   
+    border:1px solid transparent;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
-#imgburLogo,#newPost,#commentLogo ,#goAddFree, #signIn ,#signUp{
-    margin-left: 1%;
-    margin-right: 1%;
+#imgburLogo{
+
+}
+#commentLogo{
+    margin-left:-1%
+}
+#goAddFree{
+
+}
+#signIn{
+
+}
+#signUp{
+
 }

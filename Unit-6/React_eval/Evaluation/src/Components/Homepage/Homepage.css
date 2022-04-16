@@ -1,0 +1,19 @@
+#table{
+    width:70%;
+    margin:auto;
+    margin-top: 5%;
+  }
+  #row>td{
+    border:1px solid black;
+  }
+  button{
+      border:1px solid transparent;
+      border-radius: 4px;
+      color:white;
+      background-color: black;
+      font-size: 13px;
+      height:30px;
+  }
+  #sorting{
+      margin:5px
+  }
