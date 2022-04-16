@@ -4,6 +4,8 @@ import "./Homepage.css";
 import axios from "axios"
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+// import {Router} from "./Routers/Router/Router"
 
 
 export const Homepage=()=>{
@@ -26,8 +28,8 @@ export const Homepage=()=>{
     return(
         <div>
             <h1>City Country</h1>
+            <Link to="/add-city"><h3>ADD CITY</h3></Link>
             <div>
-                
                 <button id="sorting" onClick={()=>{let arr=data.sort((a,b)=>a.population-b.population); setData([...arr])}}>Sort by asce</button>
                 <button id="sorting" onClick={()=>{let arr=data.sort((a,b)=>b.population-a.population); setData([...arr])}}>Sort by desc</button>
             </div>
