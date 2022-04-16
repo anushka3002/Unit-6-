@@ -1,22 +1,24 @@
 {
-  "data": [
+  "city": [
     {
-      "id": "1",
-      "country": "India",
-      "city": "Pune",
-      "population": "1900000"
-    },
-    {
-      "id": "2",
-      "country": "Australia",
-      "city": "Delhi",
-      "population": "1300000"
-    },
-    {
-      "id": "3",
+      "city": "pune",
+      "population": "9474593257",
       "country": "America",
-      "city": "Delhi",
-      "population": "1800000"
+      "id": 2
+    }
+  ],
+  "country": [
+    {
+      "name": "India",
+      "id": 1
+    },
+    {
+      "name": "America",
+      "id": 2
+    },
+    {
+      "name": "South Africa",
+      "id": 3
     }
   ]
 }

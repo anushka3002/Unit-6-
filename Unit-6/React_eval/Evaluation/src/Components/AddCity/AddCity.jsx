@@ -1,52 +1,69 @@
-import axios from "axios"
-import { useState } from "react"
-import { addData } from "../../Redux/action"
-import { useDispatch, useSelector } from "react-redux"
+import {useEffect,useState} from 'react'
+import axios from 'axios'
+import { useParams } from "react-router-dom";
 
 
 export const AddCity=()=>{
+    const [city, setCity] =useState([]);
 
-    // const [add,setAdd]=useState({
-    //     country:"",
-    //     city:"",
-    //     population:"",
-    // })
+    const [data, setData] = useState({});
 
-    // const handleChange=(e)=>{
-    //     const {id,value}=e.target
-    // }
+    const [form,setForm] = useState({
+        city:"",
+        population:"",
+        country:"",
+    })
+    const { id } = useParams();
 
-    // setAdd({
-    //     ...add,
-    //     [id]:value,
-    // })
+    useEffect(()=>{
+        getCountry()
+        if (id) {
+            getcityData();
+        }
+    },[])
 
-    // const handleSubmit=(e)=>{
-    //     e.preventDefault();
-    //     console.log(add)
-    //     axios.post(`http://localhost:3002/data`,add).then(()=>{
-    //         alert("Item added")
-    //         setAdd({
-    //             country:"",
-    //             city:"",
-    //             population:"",
-    //         })
-    //     })
-    // }
 
-    // const [text,addData] = useState("")
-    // const data = useSelector((store)=>store.data)
-    // const dispatch= useDispatch();
+    let APIc = "http://localhost:3002/country";
+    let APIcity = "http://localhost:3002/city";
+
+    const getCountry=()=>{
+        axios.get(`${APIc}`).then((res)=>{
+            setCity([...res.data])
+        })
+    }
+
+    const getcityData = () => {
+        axios.get(`http://localhost:3002/city/${id}`).then((res) => {
+          console.log(res.data);
+          setData({ ...res });
+        });
+    };
+
+    const handleChange=(e)=>{
+        const {id,value}=e.target;
+        setForm({...form,[id]:value})
+    }
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        axios.post(`${APIcity}`,form).then(()=>{
+            alert(`${form.city} added`);
+        }).then(()=>window.location.reload());
+    };
 
     return(
         <div>
-            <form id="form">
-                <div><input type="text" placeholder="Add your city" ></input></div>
-                <div><input type="Number" placeholder="Add population of your country" ></input></div>
-                <div><input type="text" placeholder="Add your country"></input></div>
-                <button>
-                    Add Data
-                </button>
+            <h1>ADD CITY</h1>
+            <form onSubmit={(e)=>handleSubmit(e)}>
+                <input type="text" id={"city"} onChange={(e)=>handleChange(e)} placeholder="Enter a City"/>
+                <input type="text" id={"population"} onChange={(e)=>handleChange(e)} placeholder="Enter a Population"/>
+                <select name="" id={"country"} onChange={(e)=>handleChange(e)}>
+                    <option value="">Select</option>
+                    {city.map((element)=>(
+                        <option value={element.name}>{element.name}</option>
+                    ))}
+                </select>
+                <input type="submit" value="Save Country"></input>
             </form>
         </div>
     )

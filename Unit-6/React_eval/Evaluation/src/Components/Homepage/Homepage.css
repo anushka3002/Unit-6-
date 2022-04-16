@@ -1,9 +1,9 @@
 #table{
     width:70%;
     margin:auto;
-    margin-top: 5%;
+    
   }
-  #row>td{
+  #row>th{
     border:1px solid black;
   }
   button{
@@ -13,7 +13,8 @@
       background-color: black;
       font-size: 13px;
       height:30px;
+      text-decoration: none;
   }
-  #sorting{
+  .sortingButtons>button{
       margin:5px
   }

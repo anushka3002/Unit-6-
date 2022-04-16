@@ -1,10 +1,12 @@
-import { ADD_DATA } from "./action";
+import { ADD_CITY } from "./action";
 
-export const reducer=(store,{type,payload})=>{
-    switch(type){
-        case ADD_DATA:
-            return {...store,count:store.count+payload}
-        default:
-            return store
-    }
-}
+export const reducer = (store, { type, payload }) => {
+  console.log("redux store", store.city);
+  switch (type) {
+    case ADD_CITY:
+      return { ...store, city: payload };
+
+    default:
+      return store;
+  }
+};

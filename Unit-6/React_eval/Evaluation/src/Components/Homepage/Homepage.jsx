@@ -1,75 +1,144 @@
-import react from "react"
-import { useStore } from "react-redux";
-import "./Homepage.css";
-import axios from "axios"
-import { useState } from "react";
-import { useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import { CityTable } from "../Table/citytable";
 import { Link } from "react-router-dom";
-// import {Router} from "./Routers/Router/Router"
+import { useDispatch, useSelector } from "react-redux";
+import { addCity } from "../../Redux/action";
+import "./Homepage.css"
 
+export const Homepage = () => {
+  const [city, setCity] = useState([]);
+  useEffect(() => 
+    getData(), 
+  []);
 
-export const Homepage=()=>{
+  const dispatch = useDispatch();
+  const cities = useSelector((store) => store.city);
 
-    const [data,setData]=useState([])
+  const getData = () => {
+    axios.get(`http://localhost:3002/city`).then((res) => {
+      let final = dispatch(addCity(res.data));
+      setCity([...final.payload]);
+    });
+  };
 
-    useEffect(()=>{
-        getData()
-    },[])
+  const deleteCity=(id)=>{
+    axios.delete(`http://localhost:3002/city/${id}`).then(() => getData());
+  }
 
-    const getData=()=>{
-        axios.get(`http://localhost:3002/data`).then((res)=>{
-            setData(res.data)
-            console.log(res.data)
-        })
+  // SORTING
+  const sortAscCountry = () => {
+    let test = cities.sort(AscCountry);
+    let change = dispatch(addCity(test));
+    setCity([...change.payload]);
+  };
+
+  function AscCountry(a, b) {
+    if (a.country < b.country) {
+      return -1;
     }
+    if (a.country > b.country) {
+      return 1;
+    }
+    return 0;
+  }
 
+  //country dsc
 
+  const sortDscCountry = () => {
+    let test = cities.sort(DscCountry);
+    let change = dispatch(addCity(test));
+    setCity([...change.payload]);
+  };
 
-    return(
+  function DscCountry(a, b) {
+    if (a.country > b.country) {
+      return -1;
+    }
+    if (a.country < b.country) {
+      return 1;
+    }
+    return 0;
+  }
+
+  //High
+
+  const high = () => {
+    let test = cities.sort(PopulationHigh);
+    let change = dispatch(addCity(test));
+    setCity([...change.payload]);
+  };
+
+  function PopulationHigh(a, b) {
+    if (+a.population > +b.population) {
+      return -1;
+    }
+    if (+a.population < +b.population) {
+      return 1;
+    }
+    return 0;
+  }
+
+  const low = () => {
+    let test = cities.sort(PopulationLow);
+    let change = dispatch(addCity(test));
+    setCity([...change.payload]);
+  };
+
+  function PopulationLow(a, b) {
+    if (+a.population < +b.population) {
+      return -1;
+    }
+    if (+a.population > +b.population) {
+      return 1;
+    }
+    return 0;
+  }
+
+  return (
+    <>
+    <h1>Country City</h1>
+      <div className="subDiv">
+        
         <div>
-            <h1>City Country</h1>
-            <Link to="/add-city"><h3>ADD CITY</h3></Link>
-            <div>
-                <button id="sorting" onClick={()=>{let arr=data.sort((a,b)=>a.population-b.population); setData([...arr])}}>Sort by asce</button>
-                <button id="sorting" onClick={()=>{let arr=data.sort((a,b)=>b.population-a.population); setData([...arr])}}>Sort by desc</button>
-            </div>
-            <table id="table">
-                <thead>
-                    <tr id="row">
-                        <td>Id</td>
-                        <td>Country</td>
-                        <td>City</td>
-                        <td>Population</td>
-                        <td>Edit</td>
-                        <td>Delete</td>
-                    </tr>
-                </thead>
-                <tbody>
-                {data.map(place=>
-                    <tr key={place.id}>
-                        <td>{place.id}</td>
-                        <td>{place.country}</td>
-                        <td>{place.city}</td>
-                        <td>{place.population}</td>
-                        <td>
-                            <button>Edit</button>
-                        </td>
-                        <td>
-                            <button
-                             onClick={()=>{
-                                axios.delete(`http://localhost:3002/data/${1}`).then(res=>{
-                                console.log(res.data);
-                                console.log("delete done")
-                                getData();
-                                })
-                            }}
-                            >Delete</button>
-                        </td>
-                    </tr>
-                )}
-                </tbody>
-            </table>
+          <Link to={`/add-country`}>Add Country</Link>
+          <br/>
+          <Link to={`/add-city`}>Add City</Link>
         </div>
-    )
-   
-}
+        <div>
+        <br />
+        <div className="sortingButtons">
+          <button className="sortByCounty" onClick={() => sortAscCountry()}>
+            Country Asc
+          </button>
+          <button className="sortByCounty" onClick={() => sortDscCountry()}>
+            Country Desc
+          </button>
+          <button className="sortByCounty" onClick={() => high()}>
+            Population High to low
+          </button>
+          <button className="sortByCounty" onClick={() => low()}>
+            Population Low to high
+          </button>
+        </div>
+        <br />
+        </div>
+        <br/>
+        <table id="table">
+          <tr id="row">
+            <th>id</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Population</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          {city.map((el) => (
+            <CityTable key={el.id} deleteCity={deleteCity} data={el} />
+          ))}
+        </table>
+      </div>
+    </>
+  );
+};

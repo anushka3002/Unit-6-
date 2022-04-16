@@ -1,6 +1,6 @@
-import {createStore} from "redux"
-import { reducer } from "./reducers"
+import { reducer } from "./reducers";
+import { createStore } from "redux";
 
-export const store=createStore(reducer,{
-    data:[]
-})
+export const store = createStore(reducer, {
+  city: [],
+});

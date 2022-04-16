@@ -1,5 +1,3 @@
-export const ADD_DATA = "ADD_DATA"
+export const ADD_CITY = "ADD_CITY";
 
-export const addData =(payload)=>({
-    type:ADD_DATA,payload
-})
+export const addCity = (todo) => ({ type: ADD_CITY, payload: todo });
