@@ -1,0 +1,47 @@
+#information{
+    width:30%;
+    margin:auto;
+    height:450px;
+    border:1px solid rgb(176, 172, 172);
+    margin-top: 2%;
+    border-radius: 4px;
+}
+form{
+    margin: auto;
+}
+form>h3{
+    text-align: center;
+}
+#input{
+    margin:auto;
+    display: block;
+    width:85%;
+    height:35px;
+    /* margin-left: 5%; */
+    margin-bottom: 2%;
+    border-radius: 4px;
+    border:1px solid rgb(176, 172, 172);
+}
+#availability{
+    margin-left: 5%;
+}
+#available_rating{
+    margin:auto;
+    width:90%;
+    display: flex;
+    justify-content: space-between;
+}
+#submitForm{
+    justify-content: center;
+    text-align: center;
+    margin-left: 40%;
+    margin-top: 10%;
+    padding:7px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border:1px solid transparent;
+    color:white;
+    border-radius: 4px;
+    font-size: .9rem;
+    background-color: #1976d2;
+}
