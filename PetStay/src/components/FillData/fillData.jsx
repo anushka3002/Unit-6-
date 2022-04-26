@@ -15,23 +15,17 @@ const [pet,setPet]=useState({
     "address":"",
     "capacity":"",
     "cost_per_day":"",
-    "availability":"",
-    "rating":""
+    // "availability":"",
+    // "rating":""
 })
 
-useEffect(()=>{
-    getData()
-},[])
-
-const getData=()=>{
-    axios.get("http://localhost:8080/pets").then((res)=>{
-        setPet([...res.pet])
-        console.log(res.pet)
-    })
+const handleChange=(e)=>{
+    setPet({...pet,[e.target.className]:e.target.value})
 }
 
 const handleSubmit=(e)=>{
-    axios.post("http://localhost:8080/pets",pet).then((res)=>{
+    e.preventDefault();
+    axios.post("http://localhost:8080/pets",pet).then(()=>{
         alert("Added data successfully")
         setPet({
             "name":"",
@@ -39,8 +33,8 @@ const handleSubmit=(e)=>{
             "address":"",
             "capacity":"",
             "cost_per_day":"",
-            "availability":"",
-            "rating":""
+            // "availability":"",
+            // "rating":""
         })
         
     })
@@ -54,14 +48,14 @@ const [value, setValue] = React.useState(2);
 
     <>
     <div id="information">
-        <form>
+        <form onSubmit={handleSubmit}>
             <h3>Fill the information</h3>
-            <input id="input" type="text" placeholder="Enter name"></input>
-            <input id="input" type="text" placeholder="Enter city"/>
-            <input id="input" type="text" placeholder="Enter address"/>
-            <input id="input" type="text" placeholder="Enter capacity"/>
-            <input id="input" type="text" placeholder="Enter cost"/>
-            <div id="available_rating">
+            <input className="name" id="input" type="text" value={pet.name} onChange={handleChange} placeholder="Enter name"></input>
+            <input className="city" id="input" type="text" value={pet.city} onChange={handleChange} placeholder="Enter city"/>
+            <input className="address" id="input" type="text" value={pet.address} onChange={handleChange} placeholder="Enter address"/>
+            <input className="capacity" id="input" type="text" value={pet.capacity} onChange={handleChange} placeholder="Enter capacity"/>
+            <input className="cost_per_day" id="input" type="text" value={pet.cost_per_day} onChange={handleChange} placeholder="Enter cost"/>
+            {/* <div id="available_rating">
                 <div>
             <p id="availability">Availability</p>
             <div id="checkbox"><label id="availability">Yes</label><input type="checkbox"/>
@@ -81,15 +75,14 @@ const [value, setValue] = React.useState(2);
           setValue(newValue);
         }}
       />
-    </Box>  
-    </div> 
-    </div>
-    <button id="submitForm">Submit</button>
+    </Box>   */}
+    {/* </div>  */}
+    {/* </div> */}
+    <input id="submitForm" className="submitBtn" type="submit" />
         </form>
     </div>
     </>
     )
 }
-
 
 

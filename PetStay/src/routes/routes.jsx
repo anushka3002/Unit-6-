@@ -4,7 +4,7 @@ import { Homepage } from "../components/home/home"
 export const AllRoutes=()=>{
     <>
     <Routes>
-        <Route exact path="/id" element={<Homepage/>}/>
+        <Route exact path="/" element={<Homepage/>}/>
     </Routes>
     </>
 }
