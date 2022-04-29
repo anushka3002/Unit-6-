@@ -16,8 +16,7 @@ handleCounterChange=(value)=>{
         totalClicks:this.state.totalClicks+1
     },
     ()=>console.log(this.state)
-    )
-    
+    )  
 }
 
     render(){
