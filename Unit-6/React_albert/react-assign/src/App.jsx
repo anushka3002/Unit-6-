@@ -9,6 +9,8 @@ import { Timer } from './Counter/Timer'
 import { Perfect_timer } from './Counter/Perfect_timer'
 import { FetchTitle } from './fetch/fetchTitle'
 import { InfiniteScrolling } from './Assignment/InfiniteScrolling'
+import { Timer_recent } from './Interview_questions/timer_recent'
+
 
 
 function App() {
@@ -23,7 +25,8 @@ function App() {
       {/* <Todo/> */}
       {/* <Perfect_timer/> */}
       {/* <FetchTitle/> */}
-      <InfiniteScrolling/>
+      {/* <InfiniteScrolling/> */}
+      <Timer_recent/>
     </div>
   )
 }
