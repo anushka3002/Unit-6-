@@ -33,7 +33,7 @@ React.useEffect(()=>{
     return(
         <>
         <div>
-            {hr}:hr {min}:min {sec}:sec
+            {hr}: {min}: {sec}
         </div>
         <button onClick={()=>{setStatus(true)}}>Start</button>
         <button onClick={()=>{setStatus(false)}}>Pause</button>
