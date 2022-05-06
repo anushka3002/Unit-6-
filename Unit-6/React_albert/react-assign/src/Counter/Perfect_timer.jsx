@@ -16,13 +16,14 @@ export const Perfect_timer=()=>{
     var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
     const run=()=>{
         if(updatedM===60){
-            updatedH++;
+            updatedH++;f 
             updatedM=0;
         }
         if(updatedS===60){
             updatedM++;
             updatedS=0;
-        }if(updatedMs===100){
+        }
+        if(updatedMs===100){
             updatedS++;
             updatedMs=0;
         }

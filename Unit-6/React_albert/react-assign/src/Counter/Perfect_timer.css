@@ -1,8 +1,4 @@
-body{
-    /* background-color: rgb(12, 72, 92); */
-    background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700331730.jpg");
-    overflow-y: hidden;
-}
+
 *{
     padding:0px;
     margin:0px;
@@ -25,7 +21,7 @@ body{
 }
 .stopwatch span{
     background: #00ABA0;
-    color:#fff;
+    color:black;
     display: inline-block;
     font-family: monospace;
     font-size: 22px;
@@ -74,5 +70,5 @@ body{
 .stopwatch .stopwatch-btn-gre:hover{
     background: #00ABA9;
     border: 2px solid #00ABA9;
-    color:#fff;
+    color:black;
 }

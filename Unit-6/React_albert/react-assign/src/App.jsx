@@ -7,6 +7,8 @@ import { Counter2 } from './Counter/OwnCounter'
 import {Hello} from "./Counter/hello"
 import { Timer } from './Counter/Timer'
 import { Perfect_timer } from './Counter/Perfect_timer'
+import { FetchTitle } from './fetch/fetchTitle'
+import { InfiniteScrolling } from './Assignment/InfiniteScrolling'
 
 
 function App() {
@@ -19,7 +21,9 @@ function App() {
       {/* <Hello/> */}
       {/* <Timer/> */}
       {/* <Todo/> */}
-      <Perfect_timer/>
+      {/* <Perfect_timer/> */}
+      {/* <FetchTitle/> */}
+      <InfiniteScrolling/>
     </div>
   )
 }
