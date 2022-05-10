@@ -25,8 +25,25 @@ const User = new mongoose.model("User",userSchema)
 
 // Routes
 app.post("/login",(req,res)=>{
-    res.send("My API login")
+    const {email,password}= req.body
+    User.findOne({email:email},(err,user)=>{
+        if(user){
+            if(password===user.password){
+                res.send({message:"Login Successfull",user})
+            }
+            else{
+                res.send({message:"Password didn't match"})
+            }
+        }
+        else{
+            res.send({message:"User not registered",user})
+        }
+    })
 })
+
+// app.get("/",(req,res)=>{
+//     res.send("My app")
+// })
 
 app.post("/register",(req,res)=>{
    const {name,email,password}= req.body

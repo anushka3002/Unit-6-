@@ -1,6 +1,8 @@
 import React from "react" 
 import { useState } from "react"
 import "./login.css"
+import axios from "axios"
+import { Link } from "react-router-dom"
 
 export const Login=()=>{
 
@@ -17,6 +19,11 @@ export const Login=()=>{
         })
     }
 
+const login=()=>{
+    axios.post("http://localhost:9002/login",user)
+    .then(res=>console.log(res))
+    alert("Logged in Successfully")
+}
 
     return(
         <>
@@ -25,7 +32,7 @@ export const Login=()=>{
             <h1>Login</h1>
             <input type="text" name="email" value={user.email} placeholder="Enter your email" onChange={handleChange}></input>
             <input type="password" name="password" value={user.password} placeholder="Enter your password" onChange={handleChange}></input>
-            <div className="button">Login</div>
+            <div className="button" onClick={login}>Login</div>
             <div>or</div>
             <div className="button">Register</div>
         </div>
