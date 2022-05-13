@@ -5,11 +5,15 @@ import {Counter} from "./Counter/Counter"
 import {Todo} from "./Counter/Todo"
 import { Counter2 } from './Counter/OwnCounter'
 import {Hello} from "./Counter/hello"
-import { Timer } from './Counter/Timer'
+// import { Timer } from './Counter/Timer'
 import { Perfect_timer } from './Counter/Perfect_timer'
 import { FetchTitle } from './fetch/fetchTitle'
 import { InfiniteScrolling } from './Assignment/InfiniteScrolling'
 import { Timer_recent } from './Interview_questions/timer_recent'
+import {Timer} from './Interview_questions/timer'
+
+import { Practice_timer } from './Interview_questions/Practice_timer'
+import { Fetch_practice } from './fetch/fetch_practice'
 
 
 
@@ -25,8 +29,11 @@ function App() {
       {/* <Todo/> */}
       {/* <Perfect_timer/> */}
       {/* <FetchTitle/> */}
+      <Fetch_practice/>
       {/* <InfiniteScrolling/> */}
-      <Timer_recent/>
+      {/* <Timer_recent/> */}
+      {/* <GamesPage/> */}
+      {/* <Practice_timer/> */}
     </div>
   )
 }

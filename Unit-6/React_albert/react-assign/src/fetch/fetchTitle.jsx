@@ -4,11 +4,10 @@ import { useState } from "react"
 export const FetchTitle=()=>{
     const [data,setData]=useState({})
     const [number,setNumber]=useState()
-    var invalid;
+   
 
     const handleSubmit=()=>{
         axios.get("https://jsonplaceholder.typicode.com/todos").then((res)=>{
-            // console.log(res.data)
             setData(res.data[number])
         }).catch((err)=>{
             console.log("err",err)
@@ -25,14 +24,14 @@ export const FetchTitle=()=>{
                     alert("Enter a number")
                 }
                 else if(number>100){
-                    alert("Enter a valid number")
+                    alert("Enter number between 1-100")
                 }
                 else{
                     handleSubmit()
                 }
             }}>Submit</button>
             <div>
-                <p style={{color:"white"}}>{data.title}</p>
+                <p>{data.title}</p>
             </div>
         </div>
         </>

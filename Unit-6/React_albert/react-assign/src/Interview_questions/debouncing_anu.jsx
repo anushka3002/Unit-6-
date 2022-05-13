@@ -17,7 +17,7 @@ export const Debouncing =()=>{
         }
         id = setTimeout(()=>{
             func();
-        },delay)
+        },delay) 
     }
 
     const handleChange=()=>{
