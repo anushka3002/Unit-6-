@@ -5,3 +5,12 @@
     display: block;
     text-align: center;
 }
+p{
+    color:green
+}
+section{
+    color:red;
+}
+div{
+    color:inherit;
+}
