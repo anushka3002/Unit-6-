@@ -32,9 +32,11 @@ export const Debouncing =()=>{
         axios.get(`https://jsonplacehoder.typicode.com/photos?q=${input}`).then((res)=>{
             if(res.data.length==0){
                 setData([{id:"0",title:"No Result Found"}])
+                console.log(res.data)
             }
             else{
                 setData(res.data)
+                console.log(res.data)
             }
         }).catch((err)=>{
             setError(true)

@@ -14,6 +14,7 @@ import {Timer} from './Interview_questions/timer'
 
 import { Practice_timer } from './Interview_questions/Practice_timer'
 import { Fetch_practice } from './fetch/fetch_practice'
+import { Debouncing } from './Interview_questions/debouncing_anu'
 
 
 
@@ -29,11 +30,12 @@ function App() {
       {/* <Todo/> */}
       {/* <Perfect_timer/> */}
       {/* <FetchTitle/> */}
-      <Fetch_practice/>
+      {/* <Fetch_practice/> */}
       {/* <InfiniteScrolling/> */}
       {/* <Timer_recent/> */}
       {/* <GamesPage/> */}
       {/* <Practice_timer/> */}
+      <Debouncing/>
     </div>
   )
 }
