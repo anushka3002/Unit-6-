@@ -52,6 +52,7 @@ export const Debouncing =()=>{
             <div>
                 {data.map((e)=>
                     <div key ={e.id}>
+                        
                         <p>{e.title}</p>    
                     </div>
                 )}

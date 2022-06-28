@@ -45,7 +45,6 @@ router.post(
 router.get("/", async (req, res) => {
   try {
     const items = await Buyer.find().lean().exec();
-
     return res.send(items);
   } catch (er) {
     return res.status(504).send("ERROR : " + er);

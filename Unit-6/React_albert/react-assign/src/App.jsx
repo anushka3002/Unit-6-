@@ -26,16 +26,16 @@ function App() {
       {/* <Counter title="Counter for my app"/> */}
       {/* <Counter2/> */}
       {/* <Hello/> */}
-      {/* <Timer/> */}
+      <Timer/>
       {/* <Todo/> */}
-      {/* <Perfect_timer/> */}
+      <Perfect_timer/>
       {/* <FetchTitle/> */}
       {/* <Fetch_practice/> */}
       {/* <InfiniteScrolling/> */}
-      {/* <Timer_recent/> */}
+      <Timer_recent/>
       {/* <GamesPage/> */}
       {/* <Practice_timer/> */}
-      <Debouncing/>
+      {/* <Debouncing/> */}
     </div>
   )
 }
